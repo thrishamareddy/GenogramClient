@@ -1,0 +1,24 @@
+.inner-container {
+    padding: 20px; /* Inner container padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .main-container {
+    background-color: #f4f4f9; /* Light gray background for the container */
+    border-radius: 12px; /* Rounded corners for the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    padding: 20px; /* Padding around the content */
+    margin: 20px auto; /* Center the container and add spacing */
+    max-width: 1200px; /* Limit the width of the container */
+  }
+  
+  .profile-container {
+    background-color: #ffffff; /* White background for internal content */
+    border-radius: 12px; /* Rounded corners for internal section */
+    padding: 20px; /* Padding for the internal section */
+  }
+  
+  .profile-container.hover {
+    width: 20px;
+  }
+  

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GenogramComponent } from './portal/component/genogram/genogram.component';
+import { GenogramComponent } from '../../genogram/genogram.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileContainerComponent } from './portal/containers/profile-container/profile-container.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GenogramComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
