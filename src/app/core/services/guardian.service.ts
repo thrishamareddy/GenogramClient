@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GuardianService {
+  addGuardian(value: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl = 'https://localhost:7263/api/Home'; 
 
