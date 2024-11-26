@@ -36,5 +36,18 @@
     transition: opacity 0.3s; /* Smooth transition */
   }
   
+  .inline-edit-icon {
+    margin-left: 8px; /* Add some spacing between the name and the icon */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    vertical-align: middle; /* Align icon with text */
+    font-size: 16px; /* Adjust icon size to match the text */
+    color: #1976d2; /* Primary color for the icon */
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .inline-edit-icon:hover {
+    color: #1565c0; /* Slightly darker color on hover */
+  }
+  
   
   

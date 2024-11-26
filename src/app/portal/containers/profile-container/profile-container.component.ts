@@ -18,6 +18,7 @@ import { GuardianService } from '../../../core/services/guardian.service';
 
 export class ProfileContainerComponent implements OnInit {
   user:User= {
+    id:0,
     name: '',
     address: '',
     nationality: '',
@@ -32,6 +33,7 @@ export class ProfileContainerComponent implements OnInit {
     this.childService.getChildDetails().subscribe({
       next: (data) => {
         this.user = {
+          id:data.id,
           name: data.name,
           address: data.address,
           nationality: data.nationality,
@@ -39,10 +41,12 @@ export class ProfileContainerComponent implements OnInit {
           dob: data.dateOfBirth,
           photo: data.imagePath
         };
+        this.childService.setChildId(data.id);
       },
       error: (err) => {
         console.error('Failed to fetch child details:', err);
       }
+      
     });
   }
   fetchGuardianDetails(): void {

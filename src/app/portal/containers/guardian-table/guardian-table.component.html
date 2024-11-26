@@ -5,7 +5,14 @@
     </div>
 
     <table mat-table [dataSource]="guardians" class="mat-elevation-z8">
-
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let contact">
+                <button mat-icon-button color="primary">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </td>
+        </ng-container>
         <ng-container matColumnDef="firstName">
             <th mat-header-cell *matHeaderCellDef> First Name </th>
             <td mat-cell *matCellDef="let contact">{{ contact.firstName }}</td>
@@ -36,24 +43,8 @@
             <th mat-header-cell *matHeaderCellDef> Remarks </th>
             <td mat-cell *matCellDef="let contact">{{ contact.remarks || '-' }}</td>
         </ng-container>
-        <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Actions </th>
-            <td mat-cell *matCellDef="let contact">
-                <button mat-icon-button color="primary">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-        </ng-container>
-
-        <!-- Table Rows -->
+        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </mat-card>
-
-<!-- 
-<mat-dialog-actions>
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-raised-button color="primary" (click)="onSave(guardianForm.value)">Save</button>
-</mat-dialog-actions>
-</ng-template> -->

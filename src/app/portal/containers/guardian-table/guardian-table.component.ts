@@ -24,8 +24,12 @@ import {MatTableModule} from '@angular/material/table'
   styleUrls: ['./guardian-table.component.scss']
 })
 export class GuardianTableComponent {
+editGuardian(_t16: any) {
+throw new Error('Method not implemented.');
+}
   @Input() guardians: Guardian[] = [];
   displayedColumns: string[] = NameOf.those<Guardian>([
+    'actions',
     'firstName',
     'lastName',
     'relationship',
@@ -33,7 +37,7 @@ export class GuardianTableComponent {
     'email',
     'isPrimary',
     'remarks',
-    'actions',
+    
   ]);
 
   guardianForm: FormGroup;
