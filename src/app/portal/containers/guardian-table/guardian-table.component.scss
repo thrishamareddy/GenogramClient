@@ -30,8 +30,9 @@
   }
   
   .button-container button[color="primary"] {
-    background-color: #a72850; /* Primary color (blue) */
+    background-color: #72b8ac; /* Primary color (blue) */
     color: white;
+    cursor: pointer;
   }
   
 //   .button-container button[color="accent"] {
@@ -43,6 +44,24 @@
     opacity: 0.8;  /* Slight opacity change on hover */
     transition: opacity 0.3s; /* Smooth transition */
   }
+  .editBtn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.primary-contact-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Adjust width */
+  height: 40px; /* Adjust height */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #f9f9f9; /* Optional background */
+  font-size: 16px; /* Adjust font size for "-" */
+  color: #555; /* Text/icon color */
+}
+
   
   
   

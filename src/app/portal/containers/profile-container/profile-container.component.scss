@@ -1,24 +1,30 @@
+.main-container {
+  display:flex;
+  flex-direction: column;
+  background-color: white; /* Light gray background for the container */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  padding: 18px; /* Padding around the content */
+  margin: 20px; /* Center the container and add spacing */
+  max-width: 100%; /* Limit the width of the container */
+
+}
+
 .inner-container {
-    padding: 20px; /* Inner container padding for spacing */
-    border-radius: 10px; /* Rounded corners */
+  padding: 30px; /* Padding for spacing */
+  border-radius: 10px; /* Rounded corners */
+  // width: 100 vw;
+  // background-color: #96C2DB; /* White background for user profile section */
+  background-color: #e4f2f1;
+  margin-bottom: 20px; /* Spacing between profile and tab group */
+}
+
+mat-tab-group {
+  .mat-tab-label {
+    font-weight: bold; /* Emphasize tab labels */
   }
-  
-  .main-container {
-    background-color: #f4f4f9; /* Light gray background for the container */
-    border-radius: 12px; /* Rounded corners for the container */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
-    padding: 20px; /* Padding around the content */
-    margin: 20px auto; /* Center the container and add spacing */
-    max-width: 1200px; /* Limit the width of the container */
+
+  .mat-tab-label.active-tab {
+    color: #3f51b5; /* Highlight active tab */
   }
-  
-  .profile-container {
-    background-color: #ffffff; /* White background for internal content */
-    border-radius: 12px; /* Rounded corners for internal section */
-    padding: 20px; /* Padding for the internal section */
-  }
-  
-  .profile-container.hover {
-    width: 20px;
-  }
-  
+}

@@ -24,6 +24,7 @@ export class GuardianService {
   
     if (childId) {
       guardian.childId = childId; 
+      guardian.id=id;
     }
   
     return this.http.post(url, guardian, {

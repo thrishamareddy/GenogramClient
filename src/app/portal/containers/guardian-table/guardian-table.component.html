@@ -1,14 +1,14 @@
-<mat-card class="contacts-card">
+<!-- <mat-card class="contacts-card"> -->
     <div class="button-container">
-        <button mat-raised-button color="primary" (click)="openAddGuardianDialog()">Add Guardian</button>
-        <button mat-raised-button color="accent" (click)="viewGenogram()">View Genogram</button>
+        <button mat-raised-button color="primary" (click)="openAddGuardianDialog()"><mat-icon>add_circle</mat-icon> Add Guardian</button>
+        <button mat-raised-button color="accent" (click)="viewGenogram()"><mat-icon>visibility</mat-icon>View Genogram</button>
     </div>
 
     <table mat-table [dataSource]="guardians" class="mat-elevation-z8">
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef>  </th>
             <td mat-cell *matCellDef="let contact">
-                <button mat-icon-button color="primary">
+                <button mat-icon-button class="editBtn" (click)="openAddGuardianDialog(contact.id)">
                     <mat-icon>more_vert</mat-icon>
                 </button>
             </td>
@@ -36,15 +36,20 @@
         <ng-container matColumnDef="isPrimary">
             <th mat-header-cell *matHeaderCellDef> Primary Contact </th>
             <td mat-cell *matCellDef="let contact">
-                <mat-checkbox [checked]="contact.isPrimary" disabled></mat-checkbox>
+              <div class="primary-contact-box" *ngIf="contact.isPrimaryContact; else notPrimary">
+                <mat-icon color="primary">check</mat-icon>
+              </div>
+              <ng-template #notPrimary class="align">
+                <div>-</div>
+              </ng-template>
             </td>
-        </ng-container>
+          </ng-container>
         <ng-container matColumnDef="remarks">
             <th mat-header-cell *matHeaderCellDef> Remarks </th>
-            <td mat-cell *matCellDef="let contact">{{ contact.remarks || '-' }}</td>
+            <td mat-cell *matCellDef="let contact"><mat-icon>chat</mat-icon></td>
         </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-</mat-card>
+<!-- </mat-card> -->

@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table'
+import { CommonModule } from '@angular/common';
+import { GenogramComponent } from '../genogram/genogram.component';
 @Component({
   selector: 'app-guardian-table',
   standalone: true,
@@ -18,6 +20,7 @@ import {MatTableModule} from '@angular/material/table'
     MatTableModule,
     MatDialogModule, 
     ReactiveFormsModule, 
+    CommonModule
   ],
   
   templateUrl: './guardian-table.component.html',
@@ -37,7 +40,6 @@ throw new Error('Method not implemented.');
     'email',
     'isPrimary',
     'remarks',
-    
   ]);
 
   guardianForm: FormGroup;
@@ -49,35 +51,60 @@ throw new Error('Method not implemented.');
       relationship: ['', Validators.required],
       phone: [''],
       email: ['', [Validators.email]],
-      isPrimary: [false],
+      isPrimaryContact: [false],
       remarks: [''],
     });
   }
-
-  openAddGuardianDialog(): void {
+  
+  openAddGuardianDialog(guardianId?: number | null): void {
     const dialogRef = this.dialog.open(AddGuardianComponent, {
-      width: '400px',
+      data: { guardians: this.guardians, guardianId: guardianId },
+      width: '600px',
     });
-
+  
     dialogRef.componentInstance.save.subscribe((guardianData: Guardian) => {
-      this.onSave(guardianData);
+      if (guardianId) {
+        this.onEditSave(guardianData);
+      } else {
+        this.onSave(guardianData);
+      }
       dialogRef.close();
     });
-
+  
     dialogRef.componentInstance.cancel.subscribe(() => {
       dialogRef.close();
     });
   }
+  
+  onEditSave(updatedGuardian: Guardian): void {
+    const index = this.guardians.findIndex(g => g.id === updatedGuardian.id);
+    if (index !== -1) {
+      this.guardians[index] = updatedGuardian; // Update the existing guardian details
+    }
+  }
+  
 
-  onSave(guardianData: Guardian): void {
-    console.log('Saved Guardian:', guardianData);
-    this.guardians.push(guardianData); // Simulate adding to the list
+  onSave(guardianData: Guardian): void { 
+    this.guardians = [...this.guardians, guardianData];
   }
 
   onCancel(): void {
     this.dialog.closeAll();
   }
-  viewGenogram(){
-
+  viewGenogram() {
+    const dialogRef = this.dialog.open(GenogramComponent, {
+      data: {
+        nodes: [
+          { id: 'child', label: 'Child' },
+          { id: 'father', label: 'Father' },
+          { id: 'mother', label: 'Mother' }
+        ],
+        links: [
+          { source: 'child', target: 'father', label: 'Father' },
+          { source: 'child', target: 'mother', label: 'Mother' }
+        ]
+      }
+    });
   }
+  
 }

@@ -1,21 +1,19 @@
-<mat-card class="user-card">
+
     <div class="user-info">
-      <div class="profile-container">
         <img [src]="user.photo" alt="User Photo" class="profile-photo" />
-      </div>
       <div class="details-container">
-        <h2>
+        <h4>
           {{ user.name }}
           <mat-icon color="primary" class="edit-icon">edit</mat-icon>
-        </h2>
+        </h4>
         <p>{{ user.address }}</p>
         <a href="https://www.google.com/maps" target="_blank">Open in Google Maps</a>
-      </div>
+      
       <div class="right-details">
         <p><strong>Nationality:</strong> {{ user.nationality }}</p>
         <p><strong>Language:</strong> {{ user.language }}</p>
         <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
       </div>
     </div>
-  </mat-card>
+    </div>
   
